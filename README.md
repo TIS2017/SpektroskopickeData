@@ -1,0 +1,2 @@
+# SpektroskopickeData
+Spracovanie spektroskopických dát
