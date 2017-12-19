@@ -66,7 +66,7 @@ namespace DataAnalysis { namespace Transformations {
 	  }
 	  case ( FT_TRIG_COS ):
 	  {
-		  spFunct = shared_ptr<IFunction<double>>( new SinFunction<double>() );
+		  spFunct = shared_ptr<IFunction<double>>( new CosFunction<double>() );
 		  _ASSERT( argCount > 2 );
 		  spFunct->Initialize<SinFunction<double>>( pArgs );
 		  break;
