@@ -114,4 +114,27 @@ namespace DataAnalysis { namespace Transformations {
 		shared_ptr< IFunction<BaseType> > mSpSpline;
 	};
 
+	template <class BaseType = double> class PK_Functions : public IFunction<MeasurementSample> {
+
+	public:
+		PK_Functions() {
+			mType = FT_MODEL_PEAKS;
+		};
+
+		void Initialize(__in const std::vector<shared_ptr<IFunction<BaseType>>> lines) {
+			if (lines != nullptr)
+				this.lines = lines;
+		}
+
+		virtual inline void Apply(__in const MeasurementSample &in, __out MeasurementSample &out) const {
+			for (shared_ptr< IFunction<BaseType>> line : lines) {
+				line->Apply(in, out);
+			}
+		}
+
+	protected:
+		//vector of lines C1, C2, C3 ...
+		__in const std::vector<shared_ptr< IFunction<BaseType>>> lines;
+	};
+
 } }

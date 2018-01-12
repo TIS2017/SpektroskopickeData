@@ -84,6 +84,13 @@ namespace DataAnalysis { namespace Transformations {
 		  _ASSERT( paramCount == 1 );
 		  spFunct->Initialize<ConstantFunction<double>>( *pParams );
 		  break;
+	  case (FT_MODEL_PEAKS): 
+	  {
+		  spFunct = shared_ptr<IFunction<double>>(new PK_Functions<double>());
+		  _ASSERT(argCount > 15);
+		  spFunct->Initialize<PK_Functions<double>>(*pParams);
+		  break;
+	  }
 	  default:
 		  break;
 	  }
@@ -188,6 +195,22 @@ namespace DataAnalysis { namespace Transformations {
 	  spFunct->Initialize<BaselineTransform<double>>( spBPol, spBTrg, spBSpl );
   }
 
+  void CreatePeakTransform(__in const TransformationHeader &info, __inout const shared_ptr<IFunction<MeasurementSample>> spFunct) {
+
+	  std::vector<shared_ptr<IFunction<double>>> lines;
+	  //get all lines from info.subfunctions because lines can be more than 1 and we dont know how many, so we get C1, C2, C3, C4...
+	  for (int i = 0; i < info.subFunctions.Length; i++) {
+
+		  //make pointered char from string
+		  const char *line = info.subFunctions[i].c_str();
+
+		  //initialize line from subfunction
+		  shared_ptr<IFunction<double>> cLine = GetSubFunctionAndInitialize(info, line);
+		  lines.push_back(cLine);
+	  }
+	  spFunct->Initialize<PK_Functions<double>>(lines);
+  }
+
 
   shared_ptr<IFunction<MeasurementSample>> GetTransformation( __in const TransformationHeader &transformInfo, __in const InputTransformation *pCaller ) {
 	  shared_ptr<IFunction<MeasurementSample>> spFunct = nullptr;
@@ -205,7 +228,8 @@ namespace DataAnalysis { namespace Transformations {
 		  CreateBaselineTransform( transformInfo, spFunct );
 	  }
 	  else if ( transformInfo.name.compare( "PK" ) == 0 ) {
-		  // we'll see about this 0:)
+		  spFunct = shared_ptr<IFunction<MeasurementSample>>(new PK_Functions<>());		//sem sa vrati jedna struktura TransformationHeader s menom PK a subfunctions su C1, C2, C3
+		  CreatePeakTransform(transformInfo, spFunct);
 	  }
 
 	  return spFunct;
