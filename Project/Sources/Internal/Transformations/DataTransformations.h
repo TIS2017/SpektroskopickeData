@@ -128,7 +128,7 @@ namespace DataAnalysis { namespace Transformations {
 
 		virtual inline void Apply(__in const MeasurementSample &in, __out MeasurementSample &out) const {
 			for (shared_ptr< IFunction<BaseType>> line : lines) {
-				line->Apply(in, out);
+				line->Apply(in.X, out);
 			}
 		}
 
@@ -136,5 +136,16 @@ namespace DataAnalysis { namespace Transformations {
 		//vector of lines C1, C2, C3 ...
 		__in const std::vector<shared_ptr< IFunction<BaseType>>> lines;
 	};
+
+
+	//dorobiù 4 templaty sem (Gaus, Voiguht ...) podæa PK_functions
+	//dorobiù konötruktory, Ëisto funkcie pre v˝poËty a pripraviù hlaviËky pre initialize , pre pokraËovanie prepoja
+
+	/*
+	Mata : Hartman tran
+	Michal: Gauss
+	Tom·ö: Lorentz
+	Pato: Voight
+	*/
 
 } }
