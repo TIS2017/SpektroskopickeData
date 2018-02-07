@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "InputParser.h"
+#include "LorentzFunction.h"
 
 namespace DataAnalysis { namespace Transformations {
 	
@@ -86,8 +87,24 @@ namespace DataAnalysis { namespace Transformations {
 		  break;
 	  case (FT_MODEL_PEAKS): 
 	  {
-		  spFunct = shared_ptr<IFunction<double>>(new PK_Functions<double>());
 		  _ASSERT(argCount > 15);
+		  if (*pParams+2 == 0) {
+			  // if shape of line is Gauss
+			  spFunct = shared_ptr<IFunction<double>>(new LorentzFunction<double>());
+		  }
+		  else if (*pParams + 2 == 1) {
+			  // if shape of line is Lorentz
+			  
+		  }
+		  else if (*pParams + 2 == 2) {
+			  // if shape of line is Voigt
+
+		  }
+		  else if (*pParams + 2 == 3) {
+			  // if shape of line is HartmanTran
+
+		  }
+		  
 		  spFunct->Initialize<PK_Functions<double>>(*pParams);
 		  break;
 	  }
@@ -199,7 +216,7 @@ namespace DataAnalysis { namespace Transformations {
 
 	  std::vector<shared_ptr<IFunction<double>>> lines;
 	  //get all lines from info.subfunctions because lines can be more than 1 and we dont know how many, so we get C1, C2, C3, C4...
-	  for (int i = 0; i < info.subFunctions.Length; i++) {
+	  for (int i = 0; i < sizeof(info.subFunctions); i++) {
 
 		  //make pointered char from string
 		  const char *line = info.subFunctions[i].c_str();

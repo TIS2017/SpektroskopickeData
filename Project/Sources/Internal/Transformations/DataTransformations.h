@@ -128,7 +128,7 @@ namespace DataAnalysis { namespace Transformations {
 
 		virtual inline void Apply(__in const MeasurementSample &in, __out MeasurementSample &out) const {
 			for (shared_ptr< IFunction<BaseType>> line : lines) {
-				line->Apply(in.X, out);
+				line->Apply(in.X, out.Model);
 			}
 		}
 

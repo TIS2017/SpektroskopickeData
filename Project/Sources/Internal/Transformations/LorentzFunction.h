@@ -5,9 +5,10 @@
 namespace DataAnalysis { namespace Transformations {
 
 	template <class BaseType = double> class LorentzFunction : public IFunction<BaseType> {
+
 	public:
 
-		ConstantFunction() {
+		LorentzFunction() {
 			mType = FT_LORENTZ;
 		}
 
