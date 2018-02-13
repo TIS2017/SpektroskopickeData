@@ -126,11 +126,14 @@
     <ClInclude Include="CompositeFunctions.h" />
     <ClInclude Include="ConstantFunction.h" />
     <ClInclude Include="DataTransformations.h" />
+    <ClInclude Include="GaussFunction.h" />
+    <ClInclude Include="HartmanTran.h" />
     <ClInclude Include="HermitePolynomialProvider.h" />
     <ClInclude Include="InputParser.h" />
     <ClInclude Include="InputTransformation.h" />
     <ClInclude Include="IRecursivePolynomialProvider.h" />
     <ClInclude Include="LegendrePolynomialProvider.h" />
+    <ClInclude Include="LorentzFunction.h" />
     <ClInclude Include="Polynomial.h" />
     <ClInclude Include="PolynomialTransform.h" />
     <ClInclude Include="Spline.h" />

@@ -40,6 +40,15 @@
     <ClInclude Include="ConstantFunction.h">
       <Filter>Functions</Filter>
     </ClInclude>
+    <ClInclude Include="GaussFunction.h">
+      <Filter>Functions\Peaks</Filter>
+    </ClInclude>
+    <ClInclude Include="HartmanTran.h">
+      <Filter>Functions\Peaks</Filter>
+    </ClInclude>
+    <ClInclude Include="LorentzFunction.h">
+      <Filter>Functions\Peaks</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -62,6 +71,9 @@
     </Filter>
     <Filter Include="Functions\Polynomials">
       <UniqueIdentifier>{f102e75c-5efc-4e21-9d74-1cd08577e194}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Functions\Peaks">
+      <UniqueIdentifier>{a83f3fe0-4f51-4a32-9c98-ffa1eee264c6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

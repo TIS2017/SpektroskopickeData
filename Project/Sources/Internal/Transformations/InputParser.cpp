@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "InputParser.h"
 #include "LorentzFunction.h"
+#include "GaussFunction.h"
+#include "HartmanTran.h"
 
 namespace DataAnalysis { namespace Transformations {
 	
@@ -90,19 +92,19 @@ namespace DataAnalysis { namespace Transformations {
 		  _ASSERT(argCount > 15);
 		  if (*pParams+2 == 0) {
 			  // if shape of line is Gauss
-			  spFunct = shared_ptr<IFunction<double>>(new LorentzFunction<double>());
+			  spFunct = shared_ptr<IFunction<double>>(new GaussFunction<double>());
 		  }
 		  else if (*pParams + 2 == 1) {
 			  // if shape of line is Lorentz
-			  
+			  spFunct = shared_ptr<IFunction<double>>(new LorentzFunction<double>());
 		  }
 		  else if (*pParams + 2 == 2) {
 			  // if shape of line is Voigt
-
+			  //spFunct = shared_ptr<IFunction<double>>(new VoigtFunction<double>());
 		  }
 		  else if (*pParams + 2 == 3) {
-			  // if shape of line is HartmanTran
-
+			  // if shape of line is HartmanTran	
+			  spFunct = shared_ptr<IFunction<double>>(new HartmanTran<double>());
 		  }
 		  
 		  spFunct->Initialize<PK_Functions<double>>(*pParams);
