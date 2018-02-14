@@ -115,7 +115,7 @@ namespace DataAnalysis {
 				double second = sqrt(log(2) / M_PI);
 
 				//counting third multiplier
-				std::complex<double> third = pow(M_E, -pow(z, 2)) * erfc(-z.real());
+				std::complex<double> third = pow(M_E, -pow(z, 2)) * Cerf::erfc(-z);
 
 				//return first * second * third;
 				out += first * second * third.real();

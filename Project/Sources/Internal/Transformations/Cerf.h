@@ -430,21 +430,21 @@ defined (__PATHSCALE__) || ! defined (__GNUC__)
 	}
 
 
-	std::complex<double>Cerf::faddeeva(std::complex<double> z)
+	std::complex<double> faddeeva(std::complex<double> z)
 	{
 		return faddeeva_impl::faddeeva_smabmq_impl <double, 24, 6>(
 			z.real(), z.imag(), 12., faddeeva_impl::a24,
 			faddeeva_impl::npi24, faddeeva_impl::taylorarr24);
 	}
 
-	std::complex<double>Cerf::faddeeva_fast(std::complex<double> z)
+	std::complex<double> faddeeva_fast(std::complex<double> z)
 	{
 		return faddeeva_impl::faddeeva_smabmq_impl<double, 11, 3>(
 			z.real(), z.imag(), 8., faddeeva_impl::a11,
 			faddeeva_impl::npi11, faddeeva_impl::taylorarr11);
 	}
 
-	std::complex<double>Cerf::erfc(const std::complex<double> z)
+	std::complex<double> erfc(const std::complex<double> z)
 	{
 		double re = -z.real() * z.real() + z.imag() * z.imag();
 		double im = -2. * z.real() * z.imag();
@@ -456,7 +456,7 @@ defined (__PATHSCALE__) || ! defined (__GNUC__)
 					faddeeva(std::complex <double>(z.imag(), -z.real())));
 	}
 
-	std::complex<double>Cerf::erfc_fast(const std::complex<double> z)
+	std::complex<double> erfc_fast(const std::complex<double> z)
 	{
 		double re = -z.real() * z.real() + z.imag() * z.imag();
 		double im = -2. * z.real() * z.imag();
@@ -468,7 +468,7 @@ defined (__PATHSCALE__) || ! defined (__GNUC__)
 					faddeeva_fast(std::complex < double >(z.imag(), -z.real())));
 	}
 
-	std::complex<double> Cerf::erf(const std::complex<double> z)
+	std::complex<double> erf(const std::complex<double> z)
 	{
 		double re = -z.real() * z.real() + z.imag() * z.imag();
 		double im = -2. * z.real() * z.imag();
@@ -480,7 +480,7 @@ defined (__PATHSCALE__) || ! defined (__GNUC__)
 					faddeeva(std::complex <double>(z.imag(), -z.real())) - 1.);
 	}
 
-	std::complex<double>Cerf::erf_fast(const std::complex<double> z)
+	std::complex<double> erf_fast(const std::complex<double> z)
 	{
 		double re = -z.real() * z.real() + z.imag() * z.imag();
 		double im = -2. * z.real() * z.imag();
