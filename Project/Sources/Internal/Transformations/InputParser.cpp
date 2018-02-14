@@ -1,8 +1,7 @@
 #include "stdafx.h"
+#include "vector"
 #include "InputParser.h"
-#include "LorentzFunction.h"
-#include "GaussFunction.h"
-#include "HartmanTran.h"
+#include "PeakFunctions.h"
 
 namespace DataAnalysis { namespace Transformations {
 	
