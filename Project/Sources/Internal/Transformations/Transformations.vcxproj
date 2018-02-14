@@ -131,6 +131,7 @@
     <ClInclude Include="InputTransformation.h" />
     <ClInclude Include="IRecursivePolynomialProvider.h" />
     <ClInclude Include="LegendrePolynomialProvider.h" />
+    <ClInclude Include="PeakFunctions.h" />
     <ClInclude Include="Polynomial.h" />
     <ClInclude Include="PolynomialTransform.h" />
     <ClInclude Include="Spline.h" />
@@ -153,6 +154,9 @@
     <ProjectReference Include="..\Utils\Utils.vcxproj">
       <Project>{5ba0e6fe-834f-48fe-92ea-d6de48d588d7}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

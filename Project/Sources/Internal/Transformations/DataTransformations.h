@@ -1,6 +1,7 @@
 #pragma once
 
 #include "stdafx.h"
+#include "vector"
 #include "TransformationsLibPrivate.h"
 
 namespace DataAnalysis { namespace Transformations {
@@ -112,6 +113,28 @@ namespace DataAnalysis { namespace Transformations {
 		shared_ptr< IFunction<BaseType> > mSpPolynomial;
 		shared_ptr< IFunction<BaseType> > mSpTrigonometric;
 		shared_ptr< IFunction<BaseType> > mSpSpline;
+	};
+
+	template <class BaseType = double> class PK_Functions : public IFunction<MeasurementSample> {
+
+	public:
+		PK_Functions() {
+			mType = FT_MODEL_PEAKS;
+		};
+
+		void Initialize(__in const std::vector<shared_ptr<IFunction<BaseType>>> lines) {
+			PeaksLines = lines;
+		}
+
+		virtual inline void Apply(__in const MeasurementSample &in, __out MeasurementSample &out) const {
+			for (shared_ptr< IFunction<BaseType>> line : PeaksLines) {
+				line->Apply(in.X, out.Model);
+			}
+		}
+
+	protected:
+		//vector of lines C1, C2, C3 ...
+		__in std::vector<shared_ptr< IFunction<BaseType>>> PeaksLines;
 	};
 
 } }
