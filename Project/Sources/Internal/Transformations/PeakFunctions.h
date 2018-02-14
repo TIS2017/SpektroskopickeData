@@ -3,6 +3,7 @@
 #include "TransformationsLibPrivate.h"
 #include <math.h>
 #include <complex>
+#include "Cerf.h"
 
 namespace DataAnalysis {
 	namespace Transformations {
