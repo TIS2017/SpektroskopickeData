@@ -7,9 +7,6 @@
 
 /* Typedefs */
 
-/*ahoj ahoj*/
-
-
 using namespace std;
 using namespace concurrency;
 

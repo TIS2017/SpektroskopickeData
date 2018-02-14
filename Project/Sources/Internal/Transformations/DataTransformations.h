@@ -1,6 +1,7 @@
 #pragma once
 
 #include "stdafx.h"
+#include "vector"
 #include "TransformationsLibPrivate.h"
 
 namespace DataAnalysis { namespace Transformations {
@@ -122,30 +123,18 @@ namespace DataAnalysis { namespace Transformations {
 		};
 
 		void Initialize(__in const std::vector<shared_ptr<IFunction<BaseType>>> lines) {
-			if (lines != nullptr)
-				this.lines = lines;
+			PeaksLines = lines;
 		}
 
 		virtual inline void Apply(__in const MeasurementSample &in, __out MeasurementSample &out) const {
-			for (shared_ptr< IFunction<BaseType>> line : lines) {
+			for (shared_ptr< IFunction<BaseType>> line : PeaksLines) {
 				line->Apply(in.X, out.Model);
 			}
 		}
 
 	protected:
 		//vector of lines C1, C2, C3 ...
-		__in const std::vector<shared_ptr< IFunction<BaseType>>> lines;
+		__in std::vector<shared_ptr< IFunction<BaseType>>> PeaksLines;
 	};
-
-
-	//dorobiù 4 templaty sem (Gaus, Voiguht ...) podæa PK_functions
-	//dorobiù konötruktory, Ëisto funkcie pre v˝poËty a pripraviù hlaviËky pre initialize , pre pokraËovanie prepoja
-
-	/*
-	Mata : Hartman tran
-	Michal: Gauss
-	Tom·ö: Lorentz
-	Pato: Voight
-	*/
 
 } }

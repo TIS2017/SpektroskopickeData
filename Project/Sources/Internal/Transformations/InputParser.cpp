@@ -87,29 +87,32 @@ namespace DataAnalysis { namespace Transformations {
 		  _ASSERT( paramCount == 1 );
 		  spFunct->Initialize<ConstantFunction<double>>( *pParams );
 		  break;
-	  case (FT_MODEL_PEAKS): 
-	  {
-		  _ASSERT(argCount > 15);
-		  if (*pParams+2 == 0) {
-			  // if shape of line is Gauss
-			  spFunct = shared_ptr<IFunction<double>>(new GaussFunction<double>());
+	  case (FT_MODEL_PEAKS):
+		  if (pParams != nullptr) {
+
+			  if (pParams[2] == 0) {
+				  //Lorentz
+				  spFunct = shared_ptr<IFunction<double>>(new LorentzFunction<double>());
+				  spFunct->Initialize<LorentzFunction<double>>(pParams);
+			  }
+			  else if (pParams[2] == 1) {
+				  //Gauss
+				  spFunct = shared_ptr<IFunction<double>>(new GaussFunction<double>());
+				  spFunct->Initialize<GaussFunction<double>>(pParams);
+			  }
+			  else if (pParams[2] == 2) {
+				  //Voigt
+				  spFunct = shared_ptr<IFunction<double>>(new VoigtFunction<double>());
+				  spFunct->Initialize<VoigtFunction<double>>(pParams);
+			  }
+			  else if (pParams[2] == 3) {
+				  //HartmanTran
+				  /*spFunct = shared_ptr<IFunction<double>>(new HartmanTranFunction<double>());
+				  spFunct->Initialize<HartmanTranFunction<double>>(pParams);*/
+			  }
+
 		  }
-		  else if (*pParams + 2 == 1) {
-			  // if shape of line is Lorentz
-			  spFunct = shared_ptr<IFunction<double>>(new LorentzFunction<double>());
-		  }
-		  else if (*pParams + 2 == 2) {
-			  // if shape of line is Voigt
-			  //spFunct = shared_ptr<IFunction<double>>(new VoigtFunction<double>());
-		  }
-		  else if (*pParams + 2 == 3) {
-			  // if shape of line is HartmanTran	
-			  spFunct = shared_ptr<IFunction<double>>(new HartmanTran<double>());
-		  }
-		  
-		  spFunct->Initialize<PK_Functions<double>>(*pParams);
 		  break;
-	  }
 	  default:
 		  break;
 	  }

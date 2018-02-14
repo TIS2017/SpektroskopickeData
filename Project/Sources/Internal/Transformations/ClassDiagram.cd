@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DataAnalysis::Transformations::SummaryOperation&lt;BaseType, SampleClass&gt;" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAQAAAAAAAAAAAAAABAAAAAAABEAAAAA=</HashCode>
+      <FileName>CompositeFunctions.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAnalysis::Transformations::SummaryDivision&lt;BaseType, SampleClass&gt;" Collapsed="true">
+    <Position X="1.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CompositeFunctions.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAnalysis::Transformations::SummaryMultiplication&lt;BaseType, SampleClass&gt;" Collapsed="true">
+    <Position X="4" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>CompositeFunctions.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAnalysis::Transformations::ConstantFunction&lt;BaseType&gt;">
+    <Position X="17.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAQQAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>ConstantFunction.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAnalysis::Transformations::HermiteCubicSpline&lt;BaseType&gt;" Collapsed="true">
+    <Position X="19.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAjAAAwgBAAAAAAAYAABCAAAACQAEAAAAAAA=</HashCode>
+      <FileName>Spline.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAnalysis::Transformations::TrigonometricFunction&lt;BaseType&gt;" Collapsed="true">
+    <Position X="23" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAQAQAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Trigonometric.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAnalysis::Transformations::SinFunction&lt;BaseType&gt;" Collapsed="true">
+    <Position X="22" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Trigonometric.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAnalysis::Transformations::CosFunction&lt;BaseType&gt;" Collapsed="true">
+    <Position X="24.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Trigonometric.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAnalysis::Transformations::HermitePolynomialProvider&lt;BaseType&gt;" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAABAAAAAAAAAEAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HermitePolynomialProvider.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAnalysis::Transformations::IRecursivePolynomialProvider&lt;PolyBaseType&gt;" Collapsed="true">
+    <Position X="1.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAACAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IRecursivePolynomialProvider.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAnalysis::Transformations::Polynomial&lt;BaseType&gt;" Collapsed="true">
+    <Position X="30.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAADAAAAAgAAAAACAAAAAAFAEEA=</HashCode>
+      <FileName>Polynomial.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAnalysis::Transformations::LegendrePolynomialProvider&lt;BaseType&gt;" Collapsed="true">
+    <Position X="2.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAQAAAAAAAEAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>LegendrePolynomialProvider.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAnalysis::Transformations::IPolynomialTransform&lt;BaseType&gt;" Collapsed="true">
+    <Position X="8.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PolynomialTransform.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAnalysis::Transformations::BasicPolynomialTransform&lt;BaseType&gt;" Collapsed="true">
+    <Position X="6.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAQAAAAAAAAAAAAAABAAAAAAAgAAAAAA=</HashCode>
+      <FileName>PolynomialTransform.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAnalysis::Transformations::ICompositePolynomialTransform&lt;BaseType&gt;" Collapsed="true">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQCAAAADgAAwAAAAAAAACCEAAEAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>PolynomialTransform.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAnalysis::Transformations::LegendrePolynomialTransform&lt;BaseType&gt;" Collapsed="true">
+    <Position X="8.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>PolynomialTransform.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAnalysis::Transformations::HermitePolynomialTransform&lt;BaseType&gt;" Collapsed="true">
+    <Position X="10.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PolynomialTransform.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAnalysis::Transformations::XTransform&lt;BaseType&gt;" Collapsed="true">
+    <Position X="26.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAABAAAQAAAQAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>DataTransformations.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAnalysis::Transformations::YTransform&lt;BaseType&gt;" Collapsed="true">
+    <Position X="13" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAABAAAQAAAQAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>DataTransformations.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAnalysis::Transformations::BaselineTransform&lt;BaseType&gt;" Collapsed="true">
+    <Position X="15.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABIAAQAAAAAAAAAAAAAABAAAAAAAQEAAAAA=</HashCode>
+      <FileName>DataTransformations.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAnalysis::Transformations::InputTransformation" Collapsed="true">
+    <Position X="29" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FAgAAAAACEAgAAUAABQAKAEoAiCAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InputTransformation.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAnalysis::Transformations::IFunction&lt;BaseType&gt;">
+    <Position X="11.75" Y="0.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAIBAAAQAAAAAAABAEAAAAAAEAAAAAAAAAAgA=</HashCode>
+      <FileName>TransformationsLibPrivate.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="DataAnalysis::Transformations::TransformationHeader" Collapsed="true">
+    <Position X="29" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAEAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>TransformationsLibPrivate.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="DataAnalysis::Transformations::TransformationHeaderInternal" Collapsed="true">
+    <Position X="30.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAIAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>TransformationsLibPrivate.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="DataAnalysis::Transformations::INPUT_TRANSFORMATION_STATE" Collapsed="true">
+    <Position X="30.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAACAAAAAAACAAAAAACAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>InputTransformation.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DataAnalysis::Transformations::FUNCTION_TYPE" Collapsed="true">
+    <Position X="29" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASAAAAQCAAAAAAAACAAABQEIAAAAAgQAAIBACAABAQ=</HashCode>
+      <FileName>TransformationsLibPrivate.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
