@@ -112,7 +112,7 @@ namespace DataAnalysis {
 
 
 					//counting z
-					std::complex<double> z = log(2) * (w0 + i*(v0 + delta0 - v)) / td;
+					std::complex<double> z = log(2) * ((w0 + i*(v0 + delta0 - v)) / td);
 
 					//counting first multiplier
 					double first = 1 / abs(td);
@@ -124,7 +124,7 @@ namespace DataAnalysis {
 					std::complex<double> Mycerf = Cerf::erfc(-z);
 
 					//counting third multiplier
-					std::complex<double> third = pow(M_E, pow(-z, 2));
+					std::complex<double> third = pow(M_E, pow(-z, 2)) * Mycerf;
 
 					//return first * second * third;
 					out = first * second * third.real();
