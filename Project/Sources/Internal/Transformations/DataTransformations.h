@@ -124,11 +124,16 @@ namespace DataAnalysis { namespace Transformations {
 
 		void Initialize(__in const std::vector<shared_ptr<IFunction<BaseType>>> lines) {
 			PeaksLines = lines;
+			mInitialized = true;
 		}
 
 		virtual inline void Apply(__in const MeasurementSample &in, __out MeasurementSample &out) const {
 			for (shared_ptr< IFunction<BaseType>> line : PeaksLines) {
-				line->Apply(in.X, out.Model);
+				if (line != nullptr) {
+					BaseType peak(0);
+					line->Apply(in.X, peak);
+					out.Model += peak;
+				}
 			}
 		}
 

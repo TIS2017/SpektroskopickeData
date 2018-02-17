@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Cerf.h" />
     <ClInclude Include="CompositeFunctions.h" />
     <ClInclude Include="ConstantFunction.h" />
     <ClInclude Include="DataTransformations.h" />

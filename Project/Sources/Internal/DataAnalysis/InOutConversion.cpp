@@ -89,13 +89,13 @@ namespace DataAnalysis { namespace InputOutput {
 	}
 
 	void ConvertOutputData( __in size_t count, __in_ecount( count ) MeasurementSample *pSamples, __out TDFast *pOut ) {
-		double *pXout = ( *pOut->X_out )->Numeric;
-		double *pYout = ( *pOut->Y_out )->Numeric;
-		double *pDevOut = ( *pOut->W_out )->Numeric;
+		double *pXout = (*pOut->X_out)->Numeric;
+		double *pYout = (*pOut->Y_out)->Numeric;
+		double *pDevOut = (*pOut->W_out)->Numeric;
 		double *pModelOut = (*pOut->F)->Numeric;
 		MeasurementSample *pSrc = pSamples;
 
-		for ( size_t sampleI = 0; sampleI < count; sampleI++ ) {
+		for (size_t sampleI = 0; sampleI < count; sampleI++) {
 			*pXout = pSrc->X;
 			*pYout = pSrc->Y;
 			*pDevOut = pSrc->Deviation;
