@@ -77,7 +77,10 @@ namespace DataAnalysis { namespace Transformations {
 		else if ( functName.compare( "BL" ) == 0 ) {
 			typeId = FT_MODEL_BASELINE;
 		}
-		else if ( functName.compare( "PK" ) == 0 ) {
+		else if ( functName.compare( "PK" ) == 0 ) { //then this is for delete
+			typeId = FT_MODEL_PEAKS;
+		}
+		else if (functName[0] == 'C') { // function name in this case is C1, C2, C3 so we just compare first char of string
 			typeId = FT_MODEL_PEAKS;
 		}
 		else {

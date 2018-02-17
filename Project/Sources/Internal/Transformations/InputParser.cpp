@@ -68,7 +68,7 @@ namespace DataAnalysis { namespace Transformations {
 	  }
 	  case ( FT_TRIG_COS ):
 	  {
-		  spFunct = shared_ptr<IFunction<double>>( new CosFunction<double>() );
+		  spFunct = shared_ptr<IFunction<double>>( new SinFunction<double>() );
 		  _ASSERT( argCount > 2 );
 		  spFunct->Initialize<SinFunction<double>>( pArgs );
 		  break;
@@ -88,26 +88,31 @@ namespace DataAnalysis { namespace Transformations {
 		  break;
 	  case (FT_MODEL_PEAKS):
 		  if (pParams != nullptr) {
+			  const double *shape = pParams + 2;
 
-			  if (pParams[2] == 0) {
+			  if (*shape < 1.0) {
 				  //Lorentz
 				  spFunct = shared_ptr<IFunction<double>>(new LorentzFunction<double>());
 				  spFunct->Initialize<LorentzFunction<double>>(pParams);
 			  }
-			  else if (pParams[2] == 1) {
+			  else if (*shape < 2.0) {
 				  //Gauss
 				  spFunct = shared_ptr<IFunction<double>>(new GaussFunction<double>());
 				  spFunct->Initialize<GaussFunction<double>>(pParams);
 			  }
-			  else if (pParams[2] == 2) {
+			  else if (*shape < 3.0) {
 				  //Voigt
 				  spFunct = shared_ptr<IFunction<double>>(new VoigtFunction<double>());
 				  spFunct->Initialize<VoigtFunction<double>>(pParams);
 			  }
-			  else if (pParams[2] == 3) {
+			  //else if (*shape < 4.0) {
 				  //HartmanTran
 				  /*spFunct = shared_ptr<IFunction<double>>(new HartmanTranFunction<double>());
 				  spFunct->Initialize<HartmanTranFunction<double>>(pParams);*/
+			  //}
+			  else {
+				  spFunct = shared_ptr<IFunction<double>>(new LorentzFunction<double>());
+				  spFunct->Initialize<LorentzFunction<double>>(pParams);
 			  }
 
 		  }
@@ -219,13 +224,14 @@ namespace DataAnalysis { namespace Transformations {
   void CreatePeakTransform(__in const TransformationHeader &info, __inout const shared_ptr<IFunction<MeasurementSample>> spFunct) {
 
 	  std::vector<shared_ptr<IFunction<double>>> lines;
-	  //get all lines from info.subfunctions because lines can be more than 1 and we dont know how many, so we get C1, C2, C3, C4...
-	  for (int i = 0; i < sizeof(info.subFunctions); i++) {
+	  //get all lines from info.subfunctions because lines can be more than 1 and we don't know how many, so we get C1, C2, C3, C4...
+	  int lenght = info.subFunctions.Length();
 
+	  for (int i = 0; i < lenght; i++) {
 		  //make pointered char from string
 		  const char *line = info.subFunctions[i].c_str();
 
-		  //initialize line from subfunction
+		  //initialize line from sub functions
 		  shared_ptr<IFunction<double>> cLine = GetSubFunctionAndInitialize(info, line);
 		  lines.push_back(cLine);
 	  }
