@@ -92,7 +92,7 @@ namespace DataAnalysis { namespace InputOutput {
 		double *pXout = ( *pOut->X_out )->Numeric;
 		double *pYout = ( *pOut->Y_out )->Numeric;
 		double *pDevOut = ( *pOut->W_out )->Numeric;
-		double *pModelOut = ( *pOut -> F )->Numeric;
+		double *pModelOut = (*pOut->F)->Numeric;
 		MeasurementSample *pSrc = pSamples;
 
 		for ( size_t sampleI = 0; sampleI < count; sampleI++ ) {
