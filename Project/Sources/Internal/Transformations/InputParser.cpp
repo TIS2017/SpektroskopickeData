@@ -110,10 +110,6 @@ namespace DataAnalysis { namespace Transformations {
 				  /*spFunct = shared_ptr<IFunction<double>>(new HartmanTranFunction<double>());
 				  spFunct->Initialize<HartmanTranFunction<double>>(pParams);*/
 			  //}
-			  else {
-				  spFunct = shared_ptr<IFunction<double>>(new LorentzFunction<double>());
-				  spFunct->Initialize<LorentzFunction<double>>(pParams);
-			  }
 
 		  }
 		  break;

@@ -24,20 +24,18 @@ namespace DataAnalysis {
 
 			virtual inline void Apply(__in const BaseType &in, __out BaseType &out) const {
 				if (mParams != nullptr) {
-					//out += Lorentz(in);
-					double v = in;
-					double t0 = mParams[6] / 2;
+					double gamma0 = mParams[6] / 2;
 					double v0 = mParams[3];
 					double delta0 = mParams[8];
 
 					//calculate divisor
-					double divisor = pow(v - (v0 + delta0), 2) + pow(t0, 2);
+					double divisor = pow(in - (v0 + delta0), 2) + pow(gamma0, 2);
 
 					//calculate first multiplier
 					double multiplier = 1 / M_PI;
 
 					//return multiplier *	(abs(t0) / divisor);
-					out = multiplier *	(abs(t0) / divisor);
+					out = multiplier *	(abs(gamma0) / divisor);
 				}
 			}
 
@@ -63,16 +61,15 @@ namespace DataAnalysis {
 
 			virtual inline void Apply(__in const BaseType &in, __out BaseType &out) const {
 				if (mParams != nullptr) {
-					double v = in;
 					double v0 = mParams[3];
 					double delta0 = mParams[8];
-					double t0 = mParams[7] / 2;
+					double gammaD = mParams[7] / 2;
 
 					//calculate part in bracket
-					double zatvorka = -log(2) * (pow(v - (v0 + delta0), 2) / pow(t0, 2));
+					double zatvorka = -log(2) * (pow(in - (v0 + delta0), 2) / pow(gammaD, 2));
 
 					//calculate first multiplier
-					double prvy = 1 / t0;
+					double prvy = 1 / gammaD;
 
 					//calculate second multiplier
 					double druhy = sqrt(log(2) / M_PI);
@@ -102,32 +99,27 @@ namespace DataAnalysis {
 
 			virtual void Apply(__in const BaseType &in, __out BaseType &out) const {
 				if (mParams != nullptr) {
-					//out += Voigt(in);
-					double v = in;
 					static const std::complex<double> i(0.0, 1.0);
-					double w0 = mParams[6];
-					double td = w0 / 2;
+					double gamma0 = mParams[6] / 2;
+					double gammaD = mParams[7] / 2;
 					double v0 = mParams[3];
 					double delta0 = mParams[8];
 
 
 					//counting z
-					std::complex<double> z = log(2) * ((w0 + i*(v0 + delta0 - v)) / td);
+					std::complex<double> z = log(2) * ((gamma0 + i*(v0 + delta0 - in)) / gammaD);
 
 					//counting first multiplier
-					double first = 1 / abs(td);
+					double first = 1 / abs(gammaD);
 
 					//counting second multiplier
 					double second = sqrt(log(2) / M_PI);
 
 					//Counting cerf funtion
-					std::complex<double> Mycerf = Cerf::erfc(-z);
-
-					//counting third multiplier
-					std::complex<double> third = pow(M_E, pow(-z, 2)) * Mycerf;
+					std::complex<double> Mycerf = Cerf::faddeeva(i*z);
 
 					//return first * second * third;
-					out = first * second * third.real();
+					out = first * second * Mycerf.real();
 				}
 			}
 
